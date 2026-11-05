@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="150" viewBox="0 0 1200 150" role="img" aria-label="Thanks for visiting">
+  <defs>
+    <linearGradient id="w1" x1="0" x2="1"><stop offset="0" stop-color="#1D4ED8"/><stop offset="1" stop-color="#6366F1"/></linearGradient>
+    <linearGradient id="w2" x1="0" x2="1"><stop offset="0" stop-color="#38BDF8"/><stop offset="1" stop-color="#3B82F6"/></linearGradient>
+    <path id="wave" d="M0 40 Q150 0 300 40 T600 40 T900 40 T1200 40 T1500 40 T1800 40 T2100 40 T2400 40 V150 H0 Z"/>
+  </defs>
+  <style>
+    text{font-family:'Segoe UI','Inter',-apple-system,'DejaVu Sans',Arial,sans-serif}
+    .t{opacity:0;animation:in 1.2s ease-out .3s forwards}
+    @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  </style>
+  <use href="#wave" y="40" fill="url(#w1)" opacity=".35">
+    <animateTransform attributeName="transform" type="translate" values="0 0;-600 0" dur="9s" repeatCount="indefinite"/>
+  </use>
+  <use href="#wave" y="58" fill="url(#w2)" opacity=".45">
+    <animateTransform attributeName="transform" type="translate" values="-600 0;0 0" dur="7s" repeatCount="indefinite"/>
+  </use>
+  <use href="#wave" y="78" fill="#0B2350" opacity=".95">
+    <animateTransform attributeName="transform" type="translate" values="0 0;-600 0" dur="12s" repeatCount="indefinite"/>
+  </use>
+  <text class="t" x="600" y="132" text-anchor="middle" font-size="17" fill="#E0F2FE" letter-spacing="1">Thanks for visiting · Cảm ơn bạn đã ghé thăm ✦</text>
+</svg>
