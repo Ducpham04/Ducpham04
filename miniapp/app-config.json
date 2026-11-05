@@ -1,0 +1,18 @@
+{
+  "app": {
+    "title": "Tiện ích Phường",
+    "headerTitle": "Tiện ích Phường",
+    "headerColor": "#0068FF",
+    "textColor": "white",
+    "statusBarColor": "#0068FF",
+    "leftButton": "back",
+    "statusBar": "normal",
+    "actionBarHidden": true,
+    "hideIOSSafeAreaBottom": false,
+    "hideAndroidBottomNavigationBar": false
+  },
+  "debug": false,
+  "listCSS": [],
+  "listSyncJS": [],
+  "listAsyncJS": []
+}
