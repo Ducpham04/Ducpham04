@@ -20,3 +20,5 @@
 | D16 | Booking chờ thanh toán hết hạn sau 30 phút → tự hủy | Tránh giữ slot ảo; con số cấu hình được (`app.payment.hold-minutes`). |
 | D17 | "Bất kỳ ai" gán nhân viên ít booking nhất trong ngày | Cân bằng tải đơn giản, dễ giải thích cho chủ cơ sở. |
 | D18 | Giờ mở cửa theo chi nhánh; ngày nghỉ có thể toàn cơ sở hoặc theo chi nhánh | Chuỗi nhỏ thường có giờ khác nhau theo chi nhánh. |
+| D19 | Refresh token lưu `localStorage` (MVP) | Đơn giản cho SPA + proxy. Giảm thiểu bằng CSP, access 15', xoay vòng, phát hiện tái sử dụng. Đề xuất chuyển sang cookie HttpOnly (xem FINAL_REPORT). |
+| D20 | Để PR ở trạng thái Draft khi bàn giao | `docker compose` và CI chưa được xác nhận chạy; chuyển Ready sau khi xác nhận. |
