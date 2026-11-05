@@ -32,9 +32,7 @@ I'm a final-year Software Engineering student at **FPT University (Ho Chi Minh C
 <p>
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white"/>
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white"/>
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Nginx-009639?style=flat-square&logo=nginx&logoColor=white"/>
   <img src="https://img.shields.io/badge/AWS%20S3-569A31?style=flat-square&logo=amazons3&logoColor=white"/>
   <img src="https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white"/>
 </p>
@@ -56,7 +54,7 @@ I'm a final-year Software Engineering student at **FPT University (Ho Chi Minh C
 
 | Project | What it is | Stack |
 | --- | --- | --- |
-| **[Viway Fitness Pro](https://github.com/Ducpham04/Nura_Fitness_Pro-ct)** · [live](https://app.viway.id.vn/) | AI fitness & nutrition platform: personalized workout and meal plans, challenges, rewards. 250+ REST endpoints, 37-table schema, 4 Dockerized services | Spring Boot 3 · PostgreSQL · Flyway · JWT · FastAPI (LLM) · React · Docker · Nginx |
+| **[Viway Fitness Pro](https://github.com/Ducpham04/Nura_Fitness_Pro-ct)** · [live](https://app.viway.id.vn/) | AI fitness & nutrition platform: personalized workout and meal plans, challenges, rewards. 250+ REST endpoints, 37-table schema, 4 Dockerized services | Spring Boot 3 · PostgreSQL · Flyway · JWT · FastAPI (LLM) · React · Docker |
 | **[English Learning Platform](https://github.com/Ducpham04/English-LearningAppDesign)** | Student / Teacher / Admin learning platform with pronunciation scoring and auto-transcribed video lessons | Spring Boot · AWS S3 & Transcribe · Azure Speech · OpenAI · PostgreSQL |
 | **[Fitness AI Pose Service](https://github.com/Ducpham04/fit-_Ai-service)** | Real-time exercise analysis: rep counting, form checks and quality score for 5 exercises | Python · FastAPI · MediaPipe · WebSocket |
 | **[GB Speaking AI](https://github.com/Ducpham04/EnglishAppSpeaking)** | AI English-speaking practice with voice input/output and grammar feedback | Next.js · Prisma · PostgreSQL · OpenAI / Gemini |
