@@ -1,0 +1,22 @@
+# Java
+backend/target/
+backend/data/
+*.class
+# Node
+node_modules/
+dist/
+www/
+.vite/
+coverage/
+playwright-report/
+test-results/
+# Env & secrets
+.env
+.env.local
+*.local
+zmp-cli.local.json
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
