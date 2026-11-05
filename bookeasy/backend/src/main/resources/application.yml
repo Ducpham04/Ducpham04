@@ -1,0 +1,80 @@
+spring:
+  application:
+    name: bookeasy
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/bookeasy?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Ho_Chi_Minh}
+    username: ${DB_USERNAME:bookeasy}
+    password: ${DB_PASSWORD:bookeasy}
+    hikari:
+      maximum-pool-size: 15
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50
+  flyway:
+    enabled: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: Asia/Ho_Chi_Minh
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 3MB
+  mail:
+    host: ${MAIL_HOST:localhost}
+    port: ${MAIL_PORT:1025}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail.smtp.auth: ${MAIL_SMTP_AUTH:false}
+      mail.smtp.starttls.enable: ${MAIL_STARTTLS:false}
+      mail.smtp.connectiontimeout: 5000
+      mail.smtp.timeout: 5000
+
+server:
+  port: ${PORT:8080}
+  error:
+    include-stacktrace: never
+    include-message: never
+  forward-headers-strategy: framework
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  health:
+    mail:
+      enabled: false
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:dev-only-secret-change-me-please-32-bytes-minimum!!}
+    access-ttl-minutes: ${JWT_ACCESS_TTL_MINUTES:15}
+    refresh-ttl-days: ${JWT_REFRESH_TTL_DAYS:7}
+  cors-origins: ${CORS_ORIGINS:http://localhost:5173,http://localhost:3000}
+  public-url: ${PUBLIC_URL:http://localhost:3000}
+  upload-dir: ${UPLOAD_DIR:./uploads}
+  rate-limit-enabled: ${RATE_LIMIT_ENABLED:true}
+  payment:
+    webhook-secret: ${PAYMENT_WEBHOOK_SECRET:dev-webhook-secret}
+    hold-minutes: ${PAYMENT_HOLD_MINUTES:30}
+    mock-enabled: ${PAYMENT_MOCK_ENABLED:true}
+  mail:
+    from: ${MAIL_FROM:BookEasy <no-reply@bookeasy.vn>}
+    enabled: ${MAIL_ENABLED:true}
+  seed:
+    demo: ${APP_SEED_DEMO:false}
+
+logging:
+  level:
+    vn.bookeasy: INFO

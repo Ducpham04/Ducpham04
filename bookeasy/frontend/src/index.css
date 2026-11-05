@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens – xem docs/DESIGN.md. OKLCH, neutral ánh hue 160 (jade).
+ * Không gradient trang trí, không bóng + viền cùng lúc.
+ */
+@theme {
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --color-canvas: oklch(0.985 0.004 160);
+  --color-surface: oklch(1 0 0);
+  --color-sunken: oklch(0.965 0.006 160);
+  --color-line: oklch(0.91 0.008 160);
+  --color-line-strong: oklch(0.84 0.01 160);
+  --color-ink: oklch(0.22 0.015 160);
+  --color-ink-2: oklch(0.45 0.015 160);
+  --color-ink-3: oklch(0.56 0.012 160);
+
+  --color-brand: oklch(0.5 0.09 165);
+  --color-brand-strong: oklch(0.42 0.085 165);
+  --color-brand-soft: oklch(0.95 0.03 165);
+  --color-on-brand: oklch(1 0 0);
+
+  --color-danger: oklch(0.55 0.18 25);
+  --color-danger-soft: oklch(0.96 0.03 25);
+  --color-warn: oklch(0.62 0.13 70);
+  --color-warn-soft: oklch(0.96 0.05 85);
+  --color-ok: oklch(0.55 0.12 150);
+  --color-ok-soft: oklch(0.96 0.04 150);
+  --color-info: oklch(0.52 0.12 250);
+  --color-info-soft: oklch(0.96 0.03 250);
+
+  --radius-control: 10px;
+  --radius-panel: 14px;
+
+  --shadow-float: 0 8px 24px -8px oklch(0.22 0.02 160 / 0.18), 0 2px 6px -2px oklch(0.22 0.02 160 / 0.08);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Trang công khai: màu thương hiệu của cơ sở ghi đè --color-brand qua style inline. */
+.brand-scope {
+  --color-brand-strong: color-mix(in oklch, var(--color-brand) 82%, black);
+  --color-brand-soft: color-mix(in oklch, var(--color-brand) 10%, white);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    color-scheme: light;
+  }
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--color-brand-soft);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+  input, textarea, select {
+    caret-color: var(--color-brand);
+  }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes sheet-in {
+  from { transform: translateY(100%); }
+  to { transform: none; }
+}
+@keyframes panel-in {
+  from { transform: translateX(100%); }
+  to { transform: none; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.anim-rise { animation: rise 320ms var(--ease-out-expo) both; }
+.anim-fade { animation: fade-in 200ms ease-out both; }
+.anim-sheet { animation: sheet-in 320ms var(--ease-out-expo) both; }
+@media (min-width: 768px) {
+  .anim-sheet { animation-name: panel-in; }
+}
+.check-draw { stroke-dasharray: 48; stroke-dashoffset: 48; animation: draw 600ms 120ms var(--ease-out-expo) forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-rise, .anim-sheet { animation: fade-in 120ms ease-out both; }
+  .check-draw { animation: none; stroke-dashoffset: 0; }
+}
