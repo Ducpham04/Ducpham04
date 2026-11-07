@@ -65,7 +65,7 @@ export default function DashboardPage() {
               <CardHeader title="Buổi học hôm nay" description={d ? `${d.sessionsToday.length} buổi` : undefined} action={<Link to="/app/schedule" className="text-[13px] font-semibold text-primary">Lịch tuần</Link>} />
               {d ? (
                 d.sessionsToday.length ? (
-                  <ul className="divide-y divide-line border-t border-line">{d.sessionsToday.map((s) => <SessionRow key={s.id} s={s} showTeacher />)}</ul>
+                  <ul className="divide-y divide-line border-t border-line">{d.sessionsToday.map((s) => <SessionRow key={s.id} s={s} showTeacher compact />)}</ul>
                 ) : <EmptyState title="Hôm nay không có buổi học" description="Các buổi học sắp tới nằm trong Lịch." />
               ) : <div className="space-y-3 px-5 pb-5"><Skeleton className="h-10" /><Skeleton className="h-10" /></div>}
             </Card>

@@ -63,7 +63,7 @@ management:
 
 app:
   timezone: Asia/Ho_Chi_Minh
-  cors-origins: ${APP_CORS_ORIGINS:http://localhost:5173,http://localhost:3000}
+  cors-origins: ${APP_CORS_ORIGINS:http://localhost:5173,http://localhost:4173,http://localhost:3000}
   jwt:
     secret: ${JWT_SECRET:dev-only-secret-change-me-please-32-bytes-minimum!!}
     access-ttl-minutes: ${JWT_ACCESS_TTL_MINUTES:15}

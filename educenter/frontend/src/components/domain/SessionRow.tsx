@@ -7,7 +7,7 @@ import { StatusChip } from "@/components/ui";
 import { cn } from "@/lib/cn";
 
 /** Một dòng buổi học: giờ – lớp – phòng/GV – trạng thái – nút điểm danh. */
-export function SessionRow({ s, showAction = true, showTeacher = true }: { s: SessionView; showAction?: boolean; showTeacher?: boolean }) {
+export function SessionRow({ s, showAction = true, showTeacher = true, compact = false }: { s: SessionView; showAction?: boolean; showTeacher?: boolean; compact?: boolean }) {
   const cancelled = s.status === "CANCELLED";
   return (
     <li className="flex items-center gap-3 px-4 py-3 sm:gap-4 sm:px-5">
@@ -23,7 +23,7 @@ export function SessionRow({ s, showAction = true, showTeacher = true }: { s: Se
           {showTeacher && s.teacherName && <span className="inline-flex items-center gap-1"><UserRound className="size-3.5" aria-hidden />{s.teacherName}</span>}
         </p>
       </div>
-      <div className="hidden sm:block"><StatusChip map={SESSION_STATUS} value={s.status} /></div>
+      {!compact && <div className="hidden sm:block"><StatusChip map={SESSION_STATUS} value={s.status} /></div>}
       {showAction && !cancelled && (
         <Link
           to={`/app/attendance/${s.id}`}
