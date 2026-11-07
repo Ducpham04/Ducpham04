@@ -1,6 +1,6 @@
 <!-- Banner (animated SVG) -->
 <p align="center">
-  <img src="./assets/banner.svg" width="100%" alt="Phạm Văn Đức — Software Engineer · Java / Spring Boot · React"/>
+  <img src="./assets/banner.svg" width="100%" alt="Phạm Văn Đức — Web & Full-stack Developer · React · Spring Boot"/>
 </p>
 
 <p align="center">
@@ -14,18 +14,18 @@
 
 ## 👋 About me
 
-🇻🇳 Mình là **Phạm Văn Đức**, sinh viên năm cuối Kỹ thuật Phần mềm tại **Đại học FPT TP.HCM**, giảng viên lập trình tại **MindX** và freelance developer. Mình đang tìm cơ hội **Backend / Full-stack Developer**.
+🇻🇳 Mình là **Phạm Văn Đức**, sinh viên năm cuối Kỹ thuật Phần mềm tại **Đại học FPT TP.HCM**, giảng viên lập trình tại **MindX** và freelance developer. Mình đang tìm cơ hội **Web Developer / Full-stack Developer**.
 
-🇬🇧 I'm a final-year Software Engineering student at **FPT University (Ho Chi Minh City)**, a programming instructor at **MindX** and a freelance developer, looking for a **Backend / Full-stack Developer** role.
+🇬🇧 I'm a final-year Software Engineering student at **FPT University (Ho Chi Minh City)**, a programming instructor at **MindX** and a freelance developer, looking for a **Web Developer / Full-stack Developer** role.
 
 <p align="center">
   <img src="./assets/code.svg" width="88%" alt="Developer.java — animated code card"/>
 </p>
 
-- I build backends with **Java 17, Spring Boot 3, PostgreSQL** and ship them with **Docker**
-- I build frontends with **React + TypeScript** to deliver features end-to-end
+- I build responsive websites and web apps with **HTML, CSS, JavaScript, React + TypeScript** and Tailwind CSS
+- I build the APIs behind them with **Java, Spring Boot 3, PostgreSQL / MySQL** and deploy with **Docker** and Vercel
 - I freelance on web systems for SMEs and teach programming at **MindX**
-- I'm interested in system design and AI-integrated products, and I use AI coding agents in my daily workflow
+- I'm interested in fast, accessible websites and AI-integrated products
 
 <img src="./assets/divider.svg" width="100%" alt=""/>
 
@@ -47,7 +47,6 @@
   <img src="https://img.shields.io/badge/JWT-0A1636?style=flat-square&logo=jsonwebtokens&logoColor=white"/>
   <img src="https://img.shields.io/badge/Spring%20Security-0A1636?style=flat-square&logo=springsecurity&logoColor=6DB33F"/>
   <img src="https://img.shields.io/badge/OpenAI%20API-0A1636?style=flat-square&logo=openai&logoColor=white"/>
-  <img src="https://img.shields.io/badge/AI%20coding%20agents-Claude%20Code-0A1636?style=flat-square&logo=anthropic&logoColor=D97757"/>
 </p>
 
 <img src="./assets/divider.svg" width="100%" alt=""/>
@@ -57,9 +56,10 @@
 | Project | What it is | Stack |
 | --- | --- | --- |
 | **[Viway Fitness Pro](https://github.com/Ducpham04/Nura_Fitness_Pro-ct)** · [live](https://app.viway.id.vn/) | AI fitness & nutrition platform: personalized workout and meal plans, challenges, rewards. 250+ REST endpoints, 37-table schema, 4 Dockerized services | Spring Boot 3 · PostgreSQL · Flyway · JWT · FastAPI (LLM) · React · Docker |
-| **[Real Estate Management](https://github.com/Ducpham04/realestate-management)** | _Coming soon_ — property listing & management system | Spring Boot · MySQL · React |
-| **[Spring Boot Starter](https://github.com/Ducpham04/springboot-starter)** | _Coming soon_ — reusable Spring Boot template: auth, layered architecture, Docker | Spring Boot 3 · Spring Security · JWT · Docker |
-| **[Portfolio](https://github.com/Ducpham04/portfolio)** | _Coming soon_ — personal portfolio website | React · TypeScript · Tailwind CSS |
+| **[Landing Templates](https://github.com/Ducpham04/landing-templates)** | 3 responsive landing pages (real estate, interior design, education), each with its own visual style; prerendered at build time for fast loads and SEO | React 19 · TypeScript · Vite · Tailwind CSS v4 · Framer Motion |
+| **[Real Estate Management](https://github.com/Ducpham04/realestate-management)** | Property, client, viewing and deal management with a revenue dashboard; ADMIN / AGENT roles, rotating JWT refresh tokens, one-command `docker compose up` | Spring Boot 3.5 · MySQL · Flyway · React · TanStack Query · Testcontainers |
+| **[Spring Boot Starter](https://github.com/Ducpham04/springboot-starter)** | Reusable backend template for client management systems: JWT auth, roles, standard responses, dynamic filtering, file upload, Docker, CI | Spring Boot 3.5 · Spring Security · MySQL · Flyway · JUnit 5 |
+| **[English Learning Platform](https://github.com/Ducpham04/English-LearningAppDesign)** | Student / Teacher / Admin learning platform with pronunciation scoring, auto transcripts and AI conversation | Spring Boot · React · PostgreSQL · AWS S3 · Azure Speech · OpenAI |
 
 <img src="./assets/divider.svg" width="100%" alt=""/>
 
@@ -85,4 +85,4 @@
 
 <img src="./assets/footer.svg" width="100%" alt="Thanks for visiting"/>
 
-<p align="center"><sub>Open to Backend / Full-stack roles in Ho Chi Minh City — feel free to reach out.</sub></p>
+<p align="center"><sub>Open to Web Developer / Full-stack roles in Ho Chi Minh City — feel free to reach out.</sub></p>
