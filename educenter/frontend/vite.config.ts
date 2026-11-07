@@ -6,7 +6,7 @@ import path from "node:path";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  resolve: { alias: { "@": path.resolve(__dirname, "src") } },
+  resolve: { alias: { "@": path.resolve(import.meta.dirname, "src") } },
   server: {
     port: 5173,
     proxy: { "/api": { target: process.env.VITE_API_PROXY ?? "http://localhost:8080", changeOrigin: true } },

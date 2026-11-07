@@ -24,20 +24,20 @@ type Values = z.infer<typeof schema>;
 
 export default function SettingsPage() {
   const center = useCenter();
+  const banks = useBanks();
   return (
     <>
       <PageHeader title="Cài đặt" description={center.data && `Gói ${PLAN_LABEL[center.data.plan]} · mã trung tâm ${center.data.slug}`} />
       <div className="grid gap-5 lg:grid-cols-2">
-        {center.data ? <CenterForm center={center.data} /> : <Skeleton className="h-96" />}
+        {center.data && banks.data ? <CenterForm center={center.data} banks={banks.data} /> : <Skeleton className="h-96" />}
         <Reminders />
       </div>
     </>
   );
 }
 
-function CenterForm({ center }: { center: Tenant }) {
+function CenterForm({ center, banks }: { center: Tenant; banks: Record<string, string> }) {
   const qc = useQueryClient();
-  const banks = useBanks();
   const { register, handleSubmit, watch, formState: { errors, isDirty } } = useForm<Values>({
     resolver: zodResolver(schema),
     values: { name: center.name, phone: center.phone ?? "", email: center.email ?? "", address: center.address ?? "", bankCode: center.bankCode ?? "", bankAccountNo: center.bankAccountNo ?? "", bankAccountName: center.bankAccountName ?? "" },
@@ -64,7 +64,7 @@ function CenterForm({ center }: { center: Tenant }) {
             <legend className="mb-1 text-[15px] font-semibold">Tài khoản nhận học phí (VietQR)</legend>
             <Select label="Ngân hàng" {...register("bankCode")}>
               <option value="">— Chọn ngân hàng —</option>
-              {banks.data && Object.entries(banks.data).map(([code, name]) => <option key={code} value={code}>{name}</option>)}
+              {Object.entries(banks).map(([code, name]) => <option key={code} value={code}>{name}</option>)}
             </Select>
             <Input label="Số tài khoản" inputMode="numeric" error={errors.bankAccountNo?.message} {...register("bankAccountNo")} />
             <Input label="Tên chủ tài khoản" wrapperClassName="sm:col-span-2" hint="Viết hoa không dấu như trên app ngân hàng" {...register("bankAccountName")} />
