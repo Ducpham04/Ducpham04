@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* Design tokens – xem docs/DESIGN.md. OKLCH, neutral ánh xanh thống nhất với primary. */
+:root {
+  --bg: oklch(0.984 0.005 250);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.962 0.01 250);
+  --ink: oklch(0.22 0.025 258);
+  --ink-2: oklch(0.47 0.02 258);
+  --ink-3: oklch(0.6 0.015 258);
+  --line: oklch(0.91 0.01 250);
+  --line-strong: oklch(0.84 0.012 250);
+  --primary: oklch(0.52 0.15 258);
+  --primary-strong: oklch(0.43 0.15 258);
+  --primary-soft: oklch(0.955 0.025 258);
+  --ok: oklch(0.47 0.12 155);
+  --ok-soft: oklch(0.955 0.035 155);
+  --warn: oklch(0.56 0.13 70);
+  --warn-soft: oklch(0.962 0.04 80);
+  --danger: oklch(0.52 0.18 25);
+  --danger-soft: oklch(0.962 0.03 25);
+  --info: oklch(0.5 0.13 235);
+  --info-soft: oklch(0.955 0.03 235);
+  --shadow-pop: 0 8px 24px oklch(0.2 0.03 258 / 0.12), 0 2px 6px oklch(0.2 0.03 258 / 0.06);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-primary-soft: var(--primary-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --font-sans: "Be Vietnam Pro", system-ui, "Segoe UI", Roboto, sans-serif;
+  --shadow-pop: var(--shadow-pop);
+  --ease-out: var(--ease-out);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+  }
+  h1, h2, h3 { text-wrap: balance; letter-spacing: -0.015em; }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--primary-soft); color: var(--primary-strong); }
+  :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 6px; }
+  input, select, textarea, button { font: inherit; color: inherit; }
+  .tabular { font-variant-numeric: tabular-nums; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes sheet-in-right { from { transform: translateX(24px); opacity: 0 } to { transform: none; opacity: 1 } }
+@keyframes sheet-in-up { from { transform: translateY(24px); opacity: 0 } to { transform: none; opacity: 1 } }
+@keyframes fade-in { from { opacity: 0 } to { opacity: 1 } }
+@keyframes pulse-soft { 50% { opacity: .55 } }

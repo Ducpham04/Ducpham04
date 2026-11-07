@@ -14,3 +14,4 @@ e2e/playwright-report/
 .DS_Store
 .idea/
 .vscode/
+frontend/*.tsbuildinfo
