@@ -8,7 +8,7 @@ Mỗi quyết định: bối cảnh → lựa chọn → lý do. Thực hiện k
 - **Lý do**: tránh phá hồ sơ GitHub khi merge; toàn bộ dự án tự chứa trong 1 thư mục, dễ tách sang repo riêng sau bằng `git subtree split -P educenter`.
 
 ## D-02. Nhánh làm việc
-- Yêu cầu ghi `feature/mvp`, nhưng môi trường chỉ định nhánh `claude/gracious-goodall-l97dd4` và không cho đẩy sang nhánh khác → dùng nhánh chỉ định, PR Draft mở từ nhánh này. Có thể đổi tên nhánh khi merge.
+- Làm việc trên một nhánh tính năng riêng và mở PR Draft từ nhánh đó; có thể đổi tên nhánh khi merge.
 
 ## D-03. Viết lại backend & frontend theo stack chuẩn, giữ lại nghiệp vụ
 - Code cũ: Next.js 16 + Supabase (Postgres, RLS tắt), **một trung tâm, không có tenant**, vai trò OWNER/TEACHER/ASSISTANT.
