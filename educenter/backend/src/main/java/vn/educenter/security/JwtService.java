@@ -26,6 +26,15 @@ public class JwtService {
         if (secret.length < 32) {
             throw new IllegalStateException("JWT_SECRET phải dài tối thiểu 32 byte");
         }
+        String raw = props.jwt().secret();
+        boolean insecureDefault = raw.startsWith("dev-only-secret") || raw.startsWith("change-this-secret");
+        String profiles = System.getProperty("spring.profiles.active", System.getenv().getOrDefault("SPRING_PROFILES_ACTIVE", ""));
+        if (insecureDefault && profiles.contains("prod")) {
+            throw new IllegalStateException("JWT_SECRET đang dùng giá trị mặc định – không được phép ở profile prod");
+        }
+        if (insecureDefault) {
+            org.slf4j.LoggerFactory.getLogger(JwtService.class).warn("JWT_SECRET đang dùng giá trị mặc định, chỉ dùng cho môi trường dev/demo");
+        }
         this.key = Keys.hmacShaKeyFor(secret);
         this.accessTtl = Duration.ofMinutes(props.jwt().accessTtlMinutes());
         this.clock = clock;

@@ -64,3 +64,18 @@ Mỗi quyết định: bối cảnh → lựa chọn → lý do. Thực hiện k
 
 ## D-19. Tailwind CSS v4 (plugin `@tailwindcss/vite`), tokens qua `@theme`
 - Đồng bộ với code cũ (đã dùng v4), cấu hình ít hơn.
+
+## D-20. Testcontainers 2.0.5
+- Docker Engine 29 yêu cầu API ≥ 1.40; Testcontainers 1.21 dùng API 1.32 nên không chạy được. Nâng lên 2.0.5 (artifact `testcontainers-mysql`, `testcontainers-junit-jupiter`). Container khởi động trong static block vì test dùng `PER_CLASS` (Spring tạo context trước `@BeforeAll`).
+
+## D-21. Lần sinh buổi học đầu tiên bắt đầu từ ngày khai giảng
+- Trung tâm thường nhập lớp đang chạy giữa khóa → cần điểm danh bù các buổi đã qua. Lần lưu lịch đầu sinh từ `start_date`; các lần đổi lịch sau chỉ thay buổi từ hôm nay, giữ nguyên buổi đã điểm danh/đã hủy.
+
+## D-22. Dùng lại refresh token = thu hồi toàn bộ phiên
+- Refresh token xoay vòng; nếu token đã thu hồi bị dùng lại (dấu hiệu bị đánh cắp) thì thu hồi mọi refresh token của user. `refresh` dùng `noRollbackFor = BusinessException` để việc thu hồi được ghi dù request trả 401.
+
+## D-23. Secret JWT mặc định bị chặn ở profile `prod`
+- Dev/demo chạy được ngay với secret mặc định (có log cảnh báo); `SPRING_PROFILES_ACTIVE=prod` mà chưa đổi `JWT_SECRET` thì app dừng khởi động.
+
+## D-24. Nginx xóa header `Origin` khi proxy `/api`
+- SPA và API cùng origin qua Nginx nên không cần CORS; xóa `Origin` tránh lỗi 403 khi domain thật chưa được khai trong `APP_CORS_ORIGINS`. Vẫn giữ CORS cho trường hợp gọi API trực tiếp (app mobile sau MVP).
