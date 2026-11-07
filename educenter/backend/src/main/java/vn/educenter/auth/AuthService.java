@@ -59,7 +59,8 @@ public class AuthService {
         return issueTokens(user);
     }
 
-    @Transactional
+    /** Không rollback khi ném BusinessException để việc thu hồi phiên (phát hiện token bị dùng lại) được lưu. */
+    @Transactional(noRollbackFor = BusinessException.class)
     public AuthDtos.TokenResponse refresh(String rawToken) {
         RefreshToken token = refreshTokenRepository.findByTokenHash(sha256(rawToken))
                 .orElseThrow(() -> new BusinessException(HttpStatus.UNAUTHORIZED, "Phiên đăng nhập đã hết hạn"));

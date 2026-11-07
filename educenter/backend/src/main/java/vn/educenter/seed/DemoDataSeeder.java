@@ -276,28 +276,20 @@ public class DemoDataSeeder implements ApplicationRunner {
         tx.executeWithoutResult(s -> seedInvoices(t.getId(), today, classes, plans, enrollClass));
     }
 
+    /** Buổi học quá khứ đã được sinh khi lưu lịch (từ ngày khai giảng): điểm danh ngẫu nhiên, thỉnh thoảng hủy. */
     private void seedPastSessions(Long tenantId, ClassDtos.ClassDetail c, LocalDate today, Long staffId) {
-        List<ConflictDetector.Slot> slots = c.schedules().stream().map(ClassDtos.SlotDto::toSlot).toList();
-        LocalDate yesterday = today.minusDays(1);
-        if (c.startDate().isAfter(yesterday)) return;
         List<Enrollment> enrolled = enrollmentRepository.findByTenantIdAndClassIdOrderByStatusAscIdAsc(tenantId, c.id());
-        for (SessionGenerator.Occurrence o : SessionGenerator.generate(c.startDate(), yesterday, slots, Set.of())) {
-            ClassSession s = new ClassSession();
-            s.setTenantId(tenantId);
-            s.setClassId(c.id());
-            s.setSessionDate(o.date());
-            s.setStartTime(o.startTime());
-            s.setEndTime(o.endTime());
-            s.setRoomId(c.roomId());
-            s.setTeacherId(c.teacherId());
+        for (ClassSession s : sessionRepository.findByTenantIdAndClassIdOrderBySessionDateAscStartTimeAsc(tenantId, c.id())) {
+            if (!s.getSessionDate().isBefore(today)) break;
             boolean cancelled = random.nextInt(40) == 0;
             s.setStatus(cancelled ? ClassSession.Status.CANCELLED : ClassSession.Status.COMPLETED);
-            if (cancelled) s.setNote("Nghỉ lễ / giáo viên ốm – sẽ học bù");
-            sessionRepository.save(s);
-            if (cancelled) continue;
-            Instant markedAt = o.date().atTime(o.endTime()).atZone(TimeConfig.VN).toInstant();
+            if (cancelled) {
+                s.setNote("Nghỉ lễ / giáo viên ốm – sẽ học bù");
+                continue;
+            }
+            Instant markedAt = s.getSessionDate().atTime(s.getEndTime()).atZone(TimeConfig.VN).toInstant();
             for (Enrollment e : enrolled) {
-                if (e.getStartDate().isAfter(o.date())) continue;
+                if (e.getStartDate().isAfter(s.getSessionDate())) continue;
                 Attendance a = new Attendance();
                 a.setTenantId(tenantId);
                 a.setSessionId(s.getId());

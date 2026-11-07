@@ -277,14 +277,17 @@ public class ClassService {
     /** Xóa các buổi tương lai chưa điểm danh rồi sinh lại theo lịch mới. Buổi đã điểm danh được giữ nguyên. */
     private void regenerateSessions(ClassGroup c, List<ConflictDetector.Slot> slots) {
         LocalDate today = LocalDate.now(clock);
-        LocalDate from = c.getStartDate().isAfter(today) ? c.getStartDate() : today;
+        // Lần sinh đầu tiên: từ ngày khai giảng (cho phép điểm danh bù khi trung tâm mới nhập lớp đang chạy).
+        // Các lần đổi lịch sau: chỉ thay các buổi từ hôm nay, không đụng lịch sử.
+        boolean firstGeneration = sessionRepository.findByTenantIdAndClassIdOrderBySessionDateAscStartTimeAsc(c.getTenantId(), c.getId()).isEmpty();
+        LocalDate from = firstGeneration || c.getStartDate().isAfter(today) ? c.getStartDate() : today;
         List<ClassSession> future = sessionRepository.findByTenantIdAndClassIdAndSessionDateGreaterThanEqual(c.getTenantId(), c.getId(), from);
         Set<Long> withAttendance = future.isEmpty() ? Set.of()
                 : new HashSet<>(attendanceRepository.sessionIdsWithAttendance(future.stream().map(ClassSession::getId).toList()));
         List<Long> toDelete = new ArrayList<>();
         Set<String> keep = new HashSet<>();
         for (ClassSession s : future) {
-            if (withAttendance.contains(s.getId()) || s.getStatus() == ClassSession.Status.COMPLETED) {
+            if (withAttendance.contains(s.getId()) || s.getStatus() != ClassSession.Status.SCHEDULED) {
                 keep.add(SessionGenerator.key(s.getSessionDate(), s.getStartTime()));
             } else {
                 toDelete.add(s.getId());

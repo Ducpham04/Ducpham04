@@ -71,7 +71,7 @@ public class ReminderService {
             Map<Long, List<Long>> studentsByClass = enrollmentRepository.findActiveByClassIds(tenant.getId(), classIds).stream()
                     .collect(Collectors.groupingBy(Enrollment::getClassId, Collectors.mapping(Enrollment::getStudentId, Collectors.toList())));
             Set<Long> roomIds = sessions.stream().map(ClassSession::getRoomId).filter(Objects::nonNull).collect(Collectors.toSet());
-            Map<Long, String> rooms = roomIds.isEmpty() ? Map.of() : roomRepository.findByTenantIdAndIdIn(tenant.getId(), roomIds).stream()
+            Map<Long, String> rooms = roomIds.isEmpty() ? new HashMap<>() : roomRepository.findByTenantIdAndIdIn(tenant.getId(), roomIds).stream()
                     .collect(Collectors.toMap(Room::getId, Room::getName));
             Map<Long, Contact> contacts = contacts(tenant.getId(), studentsByClass.values().stream().flatMap(List::stream).collect(Collectors.toSet()));
             for (ClassSession s : sessions) {

@@ -28,32 +28,32 @@ public class Lookups {
 
     public Map<Long, String> userNames(Long tenantId, Collection<Long> ids) {
         var clean = ids.stream().filter(Objects::nonNull).distinct().toList();
-        if (clean.isEmpty()) return Map.of();
+        if (clean.isEmpty()) return java.util.Collections.emptyMap();
         return userRepository.findByIdIn(clean).stream().filter(u -> tenantId.equals(u.getTenantId()))
                 .collect(Collectors.toMap(User::getId, User::getFullName));
     }
 
     public Map<Long, String> roomNames(Long tenantId, Collection<Long> ids) {
         var clean = ids.stream().filter(Objects::nonNull).distinct().toList();
-        if (clean.isEmpty()) return Map.of();
+        if (clean.isEmpty()) return java.util.Collections.emptyMap();
         return roomRepository.findByTenantIdAndIdIn(tenantId, clean).stream().collect(Collectors.toMap(Room::getId, Room::getName));
     }
 
     public Map<Long, String> courseNames(Long tenantId, Collection<Long> ids) {
         var clean = ids.stream().filter(Objects::nonNull).distinct().toList();
-        if (clean.isEmpty()) return Map.of();
+        if (clean.isEmpty()) return java.util.Collections.emptyMap();
         return courseRepository.findByTenantIdAndIdIn(tenantId, clean).stream().collect(Collectors.toMap(Course::getId, Course::getName));
     }
 
     public Map<Long, Student> students(Long tenantId, Collection<Long> ids) {
         var clean = ids.stream().filter(Objects::nonNull).distinct().toList();
-        if (clean.isEmpty()) return Map.of();
+        if (clean.isEmpty()) return java.util.Collections.emptyMap();
         return studentRepository.findByTenantIdAndIdIn(tenantId, clean).stream().collect(Collectors.toMap(Student::getId, Function.identity()));
     }
 
     public Map<Long, ClassGroup> classes(Long tenantId, Collection<Long> ids) {
         var clean = ids.stream().filter(Objects::nonNull).distinct().toList();
-        if (clean.isEmpty()) return Map.of();
+        if (clean.isEmpty()) return java.util.Collections.emptyMap();
         return classRepository.findByTenantIdAndIdIn(tenantId, clean).stream().collect(Collectors.toMap(ClassGroup::getId, Function.identity()));
     }
 }

@@ -1,0 +1,9 @@
+app:
+  seed:
+    demo: false
+  reminders:
+    enabled: false
+  mail:
+    enabled: false
+  login-rate-limit:
+    max-attempts: 100
