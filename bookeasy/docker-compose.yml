@@ -1,0 +1,64 @@
+# Chạy toàn bộ: docker compose up --build
+# Web: http://localhost:3000 · API docs: http://localhost:3000/swagger-ui.html · Email: http://localhost:8025
+services:
+  mysql:
+    image: mysql:8.4
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-bookeasy}
+      MYSQL_USER: ${DB_USERNAME:-bookeasy}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-bookeasy}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-rootpass}
+      TZ: Asia/Ho_Chi_Minh
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_ROOT_PASSWORD:-rootpass}"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    ports:
+      - "${MYSQL_PORT:-3307}:3306"
+
+  mailpit:
+    image: axllent/mailpit:v1.21
+    ports:
+      - "8025:8025"
+
+  backend:
+    build: ./backend
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/${DB_NAME:-bookeasy}?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Ho_Chi_Minh
+      DB_USERNAME: ${DB_USERNAME:-bookeasy}
+      DB_PASSWORD: ${DB_PASSWORD:-bookeasy}
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production-at-least-32-bytes-long}
+      PUBLIC_URL: ${PUBLIC_URL:-http://localhost:3000}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000}
+      MAIL_HOST: mailpit
+      MAIL_PORT: 1025
+      MAIL_FROM: ${MAIL_FROM:-BookEasy <no-reply@bookeasy.vn>}
+      PAYMENT_WEBHOOK_SECRET: ${PAYMENT_WEBHOOK_SECRET:-dev-webhook-secret}
+      PAYMENT_MOCK_ENABLED: ${PAYMENT_MOCK_ENABLED:-true}
+      APP_SEED_DEMO: ${APP_SEED_DEMO:-true}
+      UPLOAD_DIR: /app/uploads
+    volumes:
+      - uploads:/app/uploads
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_DEMO: ${PAYMENT_MOCK_ENABLED:-true}
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+
+volumes:
+  mysql-data:
+  uploads:
