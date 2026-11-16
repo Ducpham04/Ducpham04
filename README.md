@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <a href="https://app.viway.id.vn/"><img src="https://img.shields.io/badge/Live%20project-Viway%20Fitness%20Pro-38BDF8?style=for-the-badge&labelColor=0A1636" alt="Viway live demo"/></a>
+  <a href="https://app.viway.id.vn/"><img src="https://img.shields.io/badge/UI%20demo-Viway%20Fitness%20Pro-38BDF8?style=for-the-badge&labelColor=0A1636" alt="Viway UI demo"/></a>
   <a href="mailto:pvanduc0403@gmail.com"><img src="https://img.shields.io/badge/Email-pvanduc0403%40gmail.com-0A1636?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
   <a href="https://www.linkedin.com/in/v%C4%83n-%C4%91%E1%BB%A9c-ph%E1%BA%A1m-500554265/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
   <img src="https://komarev.com/ghpvc/?username=Ducpham04&style=for-the-badge&color=2563EB&label=Profile%20views" alt="Profile views"/>
@@ -24,7 +24,7 @@
 
 - I build responsive websites and web apps with **HTML, CSS, JavaScript, React + TypeScript** and Tailwind CSS
 - I build the APIs behind them with **Java, Spring Boot 3, PostgreSQL / MySQL** and deploy with **Docker** and Vercel
-- I run my own app on **AWS**: EC2, ECS Fargate, RDS, S3 backups, IAM, CloudWatch and AWS Budgets, and cut its monthly cost by about two thirds
+- I ran my own app on **AWS** for a personal project: EC2, ECS Fargate, RDS, S3 backups, IAM, CloudWatch and AWS Budgets, and cut its monthly cost by about two thirds
 - I'm deploying a government project on **Viettel IDC** and know the basics of creating databases on **Azure**
 - I freelance on web systems for SMEs and teach programming at **MindX**
 - I'm interested in fast, accessible websites and AI-integrated products
@@ -71,7 +71,7 @@
 
 | Project | What it is | Stack |
 | --- | --- | --- |
-| **[Viway Fitness Pro](https://github.com/Ducpham04/Nura_Fitness_Pro-ct)** · [live](https://app.viway.id.vn/) | AI fitness & nutrition platform: personalized workout and meal plans, challenges, rewards. Runs on AWS: moved from ECS Fargate to one EC2 instance with daily S3 backups and budget alerts, cutting the monthly bill by about two thirds | Spring Boot 3 · PostgreSQL · FastAPI (LLM) · React · Docker · AWS (EC2, ECS, RDS, S3, IAM) |
+| **[Viway Fitness Pro](https://github.com/Ducpham04/Nura_Fitness_Pro-ct)** · [UI demo](https://app.viway.id.vn/) | AI fitness & nutrition platform: personalized workout and meal plans, challenges, rewards. Ran on AWS: moved from ECS Fargate to one EC2 instance with daily S3 backups and budget alerts, cutting the monthly bill by about two thirds (now shut down; the demo shows the UI only) | Spring Boot 3 · PostgreSQL · FastAPI (LLM) · React · Docker · AWS (EC2, ECS, RDS, S3, IAM) |
 | **[Landing Templates](https://github.com/Ducpham04/landing-templates)** | 3 responsive landing pages (real estate, interior design, education), each with its own visual style; prerendered at build time for fast loads and SEO | React 19 · TypeScript · Vite · Tailwind CSS v4 · Framer Motion |
 | **[Real Estate Management](https://github.com/Ducpham04/realestate-management)** | Property, client, viewing and deal management with a revenue dashboard; ADMIN / AGENT roles, rotating JWT refresh tokens, one-command `docker compose up` | Spring Boot 3.5 · MySQL · Flyway · React · TanStack Query · Testcontainers |
 | **[Spring Boot Starter](https://github.com/Ducpham04/springboot-starter)** | Reusable backend template for client management systems: JWT auth, roles, standard responses, dynamic filtering, file upload, Docker, CI | Spring Boot 3.5 · Spring Security · MySQL · Flyway · JUnit 5 |
