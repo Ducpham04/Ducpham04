@@ -14,9 +14,9 @@
 
 ## 👋 About me
 
-🇻🇳 Mình là **Phạm Văn Đức**, sinh viên năm cuối Kỹ thuật Phần mềm tại **Đại học FPT TP.HCM**, giảng viên lập trình tại **MindX** và freelance developer. Mình đang tìm cơ hội **Web Developer / Full-stack Developer**.
+🇻🇳 Mình là **Phạm Văn Đức**, sinh viên năm cuối Kỹ thuật Phần mềm tại **Đại học FPT TP.HCM**, giảng viên lập trình tại **MindX** và freelance developer. Mình từng OJT tại **AWS** (09–12/2025) và đang tìm cơ hội **Web Developer / Full-stack Developer** hoặc **Cloud Fresher**.
 
-🇬🇧 I'm a final-year Software Engineering student at **FPT University (Ho Chi Minh City)**, a programming instructor at **MindX** and a freelance developer, looking for a **Web Developer / Full-stack Developer** role.
+🇬🇧 I'm a final-year Software Engineering student at **FPT University (Ho Chi Minh City)**, a programming instructor at **MindX** and a freelance developer, did my OJT at **AWS** (Sep–Dec 2025), and I'm looking for a **Web Developer / Full-stack Developer** or **Cloud Fresher** role.
 
 <p align="center">
   <img src="./assets/code.svg" width="88%" alt="Developer.java — animated code card"/>
@@ -24,6 +24,8 @@
 
 - I build responsive websites and web apps with **HTML, CSS, JavaScript, React + TypeScript** and Tailwind CSS
 - I build the APIs behind them with **Java, Spring Boot 3, PostgreSQL / MySQL** and deploy with **Docker** and Vercel
+- I run my own app on **AWS**: EC2, ECS Fargate, RDS, S3 backups, IAM, CloudWatch and AWS Budgets, and cut its monthly cost by about two thirds
+- I'm deploying a government project on **Viettel IDC** and know the basics of creating databases on **Azure**
 - I freelance on web systems for SMEs and teach programming at **MindX**
 - I'm interested in fast, accessible websites and AI-integrated products
 
@@ -40,8 +42,22 @@
   <img src="https://skillicons.dev/icons?i=react,ts,js,tailwind,html,css&theme=dark" alt="Frontend"/>
 </p>
 <p align="center">
+  <b>Cloud</b><br/><br/>
+  <img src="https://skillicons.dev/icons?i=aws,azure,linux,bash,docker&theme=dark" alt="Cloud"/>
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/EC2-0A1636?style=flat-square&logo=amazonec2&logoColor=FF9900"/>
+  <img src="https://img.shields.io/badge/ECS%20Fargate-0A1636?style=flat-square&logo=amazonecs&logoColor=FF9900"/>
+  <img src="https://img.shields.io/badge/RDS-0A1636?style=flat-square&logo=amazonrds&logoColor=527FFF"/>
+  <img src="https://img.shields.io/badge/S3-0A1636?style=flat-square&logo=amazons3&logoColor=569A31"/>
+  <img src="https://img.shields.io/badge/IAM-0A1636?style=flat-square&logo=amazoniam&logoColor=DD344C"/>
+  <img src="https://img.shields.io/badge/CloudWatch-0A1636?style=flat-square&logo=amazoncloudwatch&logoColor=FF4F8B"/>
+  <img src="https://img.shields.io/badge/AWS%20Budgets-0A1636?style=flat-square&logo=amazonwebservices&logoColor=FF9900"/>
+  <img src="https://img.shields.io/badge/Viettel%20IDC-0A1636?style=flat-square"/>
+</p>
+<p align="center">
   <b>Data · DevOps · Tools</b><br/><br/>
-  <img src="https://skillicons.dev/icons?i=postgres,mysql,docker,aws,githubactions,git,postman,idea&theme=dark" alt="Data, DevOps & Tools"/>
+  <img src="https://skillicons.dev/icons?i=postgres,mysql,githubactions,git,postman,idea&theme=dark" alt="Data, DevOps & Tools"/>
 </p>
 <p align="center">
   <img src="https://img.shields.io/badge/JWT-0A1636?style=flat-square&logo=jsonwebtokens&logoColor=white"/>
@@ -55,7 +71,7 @@
 
 | Project | What it is | Stack |
 | --- | --- | --- |
-| **[Viway Fitness Pro](https://github.com/Ducpham04/Nura_Fitness_Pro-ct)** · [live](https://app.viway.id.vn/) | AI fitness & nutrition platform: personalized workout and meal plans, challenges, rewards. 250+ REST endpoints, 37-table schema, 4 Dockerized services | Spring Boot 3 · PostgreSQL · Flyway · JWT · FastAPI (LLM) · React · Docker |
+| **[Viway Fitness Pro](https://github.com/Ducpham04/Nura_Fitness_Pro-ct)** · [live](https://app.viway.id.vn/) | AI fitness & nutrition platform: personalized workout and meal plans, challenges, rewards. Runs on AWS: moved from ECS Fargate to one EC2 instance with daily S3 backups and budget alerts, cutting the monthly bill by about two thirds | Spring Boot 3 · PostgreSQL · FastAPI (LLM) · React · Docker · AWS (EC2, ECS, RDS, S3, IAM) |
 | **[Landing Templates](https://github.com/Ducpham04/landing-templates)** | 3 responsive landing pages (real estate, interior design, education), each with its own visual style; prerendered at build time for fast loads and SEO | React 19 · TypeScript · Vite · Tailwind CSS v4 · Framer Motion |
 | **[Real Estate Management](https://github.com/Ducpham04/realestate-management)** | Property, client, viewing and deal management with a revenue dashboard; ADMIN / AGENT roles, rotating JWT refresh tokens, one-command `docker compose up` | Spring Boot 3.5 · MySQL · Flyway · React · TanStack Query · Testcontainers |
 | **[Spring Boot Starter](https://github.com/Ducpham04/springboot-starter)** | Reusable backend template for client management systems: JWT auth, roles, standard responses, dynamic filtering, file upload, Docker, CI | Spring Boot 3.5 · Spring Security · MySQL · Flyway · JUnit 5 |
